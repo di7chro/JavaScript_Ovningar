@@ -1,5 +1,5 @@
 # Javascript_Ovningar
-Övning 1
+**Övning 1**
 Gör ett program som skriver ut ert för och efternamn med hjälp av "console.log()".
 
 Övning 2

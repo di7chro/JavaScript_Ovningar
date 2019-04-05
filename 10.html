@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="description">
+    <title>JavaScript exempel</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #fff;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin: 0 auto;
+            border: thin solid #ddd;
+            background-color: #eee;
+            width: 800px;
+            padding: 2em;
+        }
+
+        pre,
+        #result {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 3px solid #000;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>JavaScript exempel</h2>
+        <div id="result"></div>
+    </section>
+    <script>
+        str_small = "Det var ett litet tal: ";
+        str_big = "Det var ett stort tal: ";
+
+        out = document.getElementById("result");
+        for (i = 0; i < 5; i++) {
+            slumptal = Math.random();
+            if (slumptal < 0.5)
+                out.innerHTML += str_small + "(" + parseFloat(slumptal).toFixed(3) + ")" + "<br>";
+            else
+                out.innerHTML += str_big + "(" + parseFloat(slumptal).toFixed(3) + ")" + "<br>";
+        }
+    </script>
+</body>
+
+</html>

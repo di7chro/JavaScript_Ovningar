@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="description">
+    <title>JavaScript exempel</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #fff;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin: 0 auto;
+            border: thin solid #ddd;
+            background-color: #eee;
+            width: 800px;
+            padding: 2em;
+        }
+
+        pre,
+        #result,
+        input,
+        button {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 3px solid #000;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>JavaScript exempel</h2>
+        <p>Potatisen kostar 2kr/kg. Hur många kilo vill du ha?</p>
+        <p>
+            <input type="number" id="kilo" placeholder="Ange antal kilo">
+        </p>
+        <p><button onclick="checkout()">Beräkna priset</button></p>
+        <p></p>
+        <div id="result"></div>
+    </section>
+    <script>
+        function checkout() {
+            out = document.getElementById("result");
+            kilo = parseFloat(document.getElementById("kilo").value);
+
+            out.innerHTML = "Det kostar dig: " + 2 * kilo + " kronor";
+        }
+    </script>
+</body>
+
+</html>

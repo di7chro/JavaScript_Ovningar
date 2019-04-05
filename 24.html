@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="description">
+    <title>JavaScript exempel</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #fff;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin: 0 auto;
+            border: thin solid #ddd;
+            background-color: #eee;
+            width: 800px;
+            padding: 2em;
+        }
+
+        pre,
+        #result,
+        input,
+        button {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 3px solid #000;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        input {
+            background-color: #fff;
+            color: #000;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>JavaScript exempel</h2>
+        <p>Välkommen att köpa grej! Du får välja vad den kostar och hur många du vill ha såklart.</p>
+        <p>Pris: <input type="number" id="Pris" placeholder="Pris/st" min="0"></p>
+        <p>Antal: <input type="number" id="Antal" placeholder="Antal" min="0"></p>
+        <p><button onclick="berakna()">Beräkna</button></p>
+        <div id="result"></div>
+    </section>
+    <script>
+        function berakna() {
+            Pris = parseInt(document.getElementById("Pris").value);
+            Antal = parseInt(document.getElementById("Antal").value);
+            out = document.getElementById("result");
+            totalPris = Pris * Antal;
+            if (totalPris > 1000 && Antal > 20)
+                out.innerHTML = "Pris med 20% rabatt: " + totalPris.toFixed(2) * 0.8 + " (utan rabatt:" + totalPris +
+                ":-)";
+            else if (totalPris > 1000 || Antal > 20)
+                out.innerHTML = "Pris med 10% rabatt: " + totalPris.toFixed(2) * 0.9 + " (utan rabatt:" + totalPris +
+                ":-)";
+            else
+                out.innerHTML = "Pris utan rabatt: " + totalPris;
+
+        }
+    </script>
+</body>
+
+</html>

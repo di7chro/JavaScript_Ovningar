@@ -1,4 +1,4 @@
-# Javascript_Ovningar
+# Javascript Övningar
 Lite blandade övningar från Högskolan Väst introduktionskurs i JavaScript.
 
 

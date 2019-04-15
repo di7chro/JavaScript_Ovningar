@@ -56,18 +56,34 @@
     </section>
     <script>
         function kolla() {
+            out = document.getElementById("result");
+
             Poang1 = parseInt(document.getElementById("Poang1").value);
             Poang2 = parseInt(document.getElementById("Poang2").value);
             Poang3 = parseInt(document.getElementById("Poang3").value);
             Poang4 = parseInt(document.getElementById("Poang4").value);
             var Poang = [Poang1, Poang2, Poang3, Poang4];
 
+            storst = Poang1, minst = Poang1;
 
-            Poang = BubbleSort(Poang);
+            // Hitta största och minsta talet av de inmatade
+            for (i = 0; i < Poang.length; i++) {
+                if (Poang[i] > storst)
+                    storst = Poang[i];
+                else if (Poang[i] < minst)
+                    minst = Poang[i];
+            }
+            TotalPoang = 0;
 
-            out = document.getElementById("result");
-            TotalPoang = Poang[1] + Poang[2];
-            out.innerHTML = "Totalpoäng (utan störst och minst): " + TotalPoang + "<br>";
+            // Summera ihop alla poäng
+            for (i = 0; i < Poang.length; i++)
+                TotalPoang += Poang[i];
+
+            out.innerHTML += "<br>Totalpoäng: " + TotalPoang + "<br>";
+
+            // Ta bort det största och minsta talet
+            TotalPoang = TotalPoang - storst - minst;
+            out.innerHTML += "<br>Totalpoäng (utan störst och minst): " + TotalPoang + "<br>";
         }
     </script>
 </body>

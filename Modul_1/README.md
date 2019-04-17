@@ -1,4 +1,4 @@
-# Javascript Övningar
+# Javascript Övningar Modul 1
 Lite blandade övningar från Högskolan Väst introduktionskurs i JavaScript.
 
 

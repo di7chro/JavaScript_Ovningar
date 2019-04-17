@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="description">
+    <title>JavaScript exempel</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <script src="4.js"></script>
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #fff;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin: 0 auto;
+            border: thin solid #ddd;
+            background-color: #eee;
+            width: 800px;
+            padding: 2em;
+        }
+
+        pre,
+        #result,
+        input,
+        button {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 3px solid #000;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        input {
+            background-color: #fff;
+            color: #000;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>JavaScript exempel</h2>
+        <p><button onclick="printIt()">Skriv ut det!</button></p>
+        <div id="result"></div>
+    </section>
+    <script>
+        function titleCase(str) {
+            str = str.toLowerCase().split(' ');
+
+            for (var i = 0; i < str.length; i++) {
+                str[i] = str[i].split('');
+                str[i][0] = str[i][0].toUpperCase();
+                str[i] = str[i].join('');
+            }
+            return str.join(' ');
+        }
+
+        function printIt() {
+            out = document.getElementById("result");
+            var ord = new Array("God", "och", "JUL", "Gott", "år", "Nytt");
+            out.innerHTML = "Meddelandet lyder: ";
+            out.innerHTML += ord[0] + " ";
+            out.innerHTML += titleCase(ord[2]) + " ";
+            out.innerHTML += ord[1] + " ";
+            out.innerHTML += ord[3] + " ";
+            out.innerHTML += ord[5] + " ";
+            out.innerHTML += ord[4] + " ";
+        }
+    </script>
+</body>
+
+</html>

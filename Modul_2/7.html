@@ -6,6 +6,7 @@
     <meta name="description" content="description">
     <title>JavaScript exempel</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <script src="4.js"></script>
     <style>
         body {
             font-family: 'Source Sans Pro', sans-serif;
@@ -22,7 +23,9 @@
         }
 
         pre,
-        #result {
+        #result,
+        input,
+        button {
             font-family: 'Source Code Pro', monospace;
             font-weight: bold;
             font-size: 1rem;
@@ -31,22 +34,28 @@
             color: #fff;
             padding: 1rem;
         }
+
+        input {
+            background-color: #fff;
+            color: #000;
+            width: 150px;
+        }
     </style>
 </head>
 
 <body>
     <section>
         <h2>JavaScript exempel</h2>
+        <p><button onclick="visaOrdet()">Slumpa ordet</button></p>
         <div id="result"></div>
     </section>
     <script>
-        function addera(tal1, tal2) {
-            svar = tal1 + tal2;
-            return svar;
+        function visaOrdet() {
+            var ord = new Array("Hej", "Nej", "EJ", "Leverpastej", "42");
+            out = document.getElementById("result");
+            pos = slumptal = Math.floor((Math.random() * ord.length));
+            out.innerHTML = "Positionen: " + pos + " innehåller ordet: " + ord[pos];
         }
-        out = document.getElementById("result");
-        svar = addera(2, 2);
-        out.innerHTML = "Svaret är: " + svar;
     </script>
 </body>
 

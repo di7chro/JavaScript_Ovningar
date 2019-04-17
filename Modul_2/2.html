@@ -22,7 +22,9 @@
         }
 
         pre,
-        #result {
+        #result,
+        input,
+        button {
             font-family: 'Source Code Pro', monospace;
             font-weight: bold;
             font-size: 1rem;
@@ -31,22 +33,41 @@
             color: #fff;
             padding: 1rem;
         }
+
+        input {
+            background-color: #fff;
+            color: #000;
+            width: 150px;
+        }
     </style>
 </head>
 
 <body>
     <section>
         <h2>JavaScript exempel</h2>
+        <p><input type="number" id="Tal1" placeholder="Tal1" min="0"></p>
+        <p><input type="number" id="Tal2" placeholder="Tal2" min="0"></p>
+        <p><button onclick="berakna()">Räkna ut det!</button></p>
         <div id="result"></div>
     </section>
     <script>
-        function addera(tal1, tal2) {
-            svar = tal1 + tal2;
-            return svar;
+        function berakna() {
+            out = document.getElementById("result");
+            tal1 = parseInt(document.getElementById("Tal1").value);
+            tal2 = parseInt(document.getElementById("Tal2").value);
+            add = addera(tal1, tal2);
+            prod = multiplicera(tal1, tal2);
+            out.innerHTML = "Summan är: " + add;
+            out.innerHTML += "<br>Produktet är: " + prod;
         }
-        out = document.getElementById("result");
-        svar = addera(2, 2);
-        out.innerHTML = "Svaret är: " + svar;
+
+        function addera(tal1, tal2) {
+            return tal1 + tal2;
+        }
+
+        function multiplicera(tal1, tal2) {
+            return tal1 * tal2;
+        }
     </script>
 </body>
 

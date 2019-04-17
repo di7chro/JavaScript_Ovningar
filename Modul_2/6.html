@@ -6,6 +6,7 @@
     <meta name="description" content="description">
     <title>JavaScript exempel</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <script src="4.js"></script>
     <style>
         body {
             font-family: 'Source Sans Pro', sans-serif;
@@ -22,7 +23,9 @@
         }
 
         pre,
-        #result {
+        #result,
+        input,
+        button {
             font-family: 'Source Code Pro', monospace;
             font-weight: bold;
             font-size: 1rem;
@@ -31,22 +34,34 @@
             color: #fff;
             padding: 1rem;
         }
+
+        input {
+            background-color: #fff;
+            color: #000;
+            width: 150px;
+        }
     </style>
 </head>
 
 <body>
     <section>
         <h2>JavaScript exempel</h2>
+        <p><input type="number" id="Position" placeholder="Position" min="0"></p>
+        <p><button onclick="visaOrdet()">Visa ordet</button></p>
         <div id="result"></div>
     </section>
     <script>
-        function addera(tal1, tal2) {
-            svar = tal1 + tal2;
-            return svar;
+        function visaOrdet() {
+            var ord = new Array("Hej", "Nej", "EJ", "Leverpastej", "42");
+            out = document.getElementById("result");
+            pos = parseInt(document.getElementById("Position").value);
+            maxPos = ord.length - 1;
+            if (pos < 0 || pos > maxPos)
+                out.innerHTML = "Det där var ingen position som fungerar. Ange tal 0 - " + maxPos;
+            else {
+                out.innerHTML = "Positionen: " + pos + " innehåller ordet: " + ord[pos];
+            }
         }
-        out = document.getElementById("result");
-        svar = addera(2, 2);
-        out.innerHTML = "Svaret är: " + svar;
     </script>
 </body>
 

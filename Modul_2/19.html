@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="description">
+    <title>JavaScript exempel</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <script src="4.js"></script>
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #fff;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin: 0 auto;
+            border: thin solid #ddd;
+            background-color: #eee;
+            width: 800px;
+            padding: 2em;
+        }
+
+        pre,
+        #result,
+        input,
+        button {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 3px solid #000;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        input {
+            background-color: #fff;
+            color: #000;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>JavaScript exempel</h2>
+        <p><input type="text" id="Texten" placeholder="Ange en text"></p>
+        <p><input type="number" id="Antal" placeholder="Antal gånger" min="0"></p>
+        <p><button onclick="visaTexten()">Visa texten</button></p>
+        <div id="result"></div>
+    </section>
+    <script>
+        function visaTexten() {
+            out = document.getElementById("result");
+            texten = document.getElementById("Texten").value;
+            antal = document.getElementById("Antal").value;
+            if (antal <= 0 || antal > 10)
+                out.innerHTML = "Antal skall vara 1-10";
+            else {
+                for (var i = 0; i < antal; i++) {
+                    size = i * 20 + 50;
+                    out.innerHTML += "<span style=\"font-size:" + size + "%\">" + texten + "</span><br>";
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

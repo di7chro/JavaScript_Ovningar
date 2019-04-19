@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="description">
+    <title>JavaScript exempel</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <script src="4.js"></script>
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #fff;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin: 0 auto;
+            border: thin solid #ddd;
+            background-color: #eee;
+            width: 800px;
+            padding: 2em;
+        }
+
+        pre,
+        #result,
+        input,
+        button {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 3px solid #000;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        input {
+            background-color: #fff;
+            color: #000;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>JavaScript exempel</h2>
+        <p><button onclick="visaOrdet()">Slumpa lösenord</button></p>
+        <div id="result"></div>
+    </section>
+    <script>
+        function generera3grupp() {
+            var konsonanter = ["b", "c", "d", "f", "g", "h", "j", "k", "l", "m", "n", "p", "q", "r", "s", "t", "v", "z",
+                "x"
+            ];
+            var vokaler = ["a", "e", "i", "o", "u", "y"];
+            var slumpKonsonant1 = konsonanter[Math.floor((Math.random() * konsonanter.length))];
+            var slumpVokal = vokaler[Math.floor((Math.random() * vokaler.length))];
+            var slumpKonsonant2 = konsonanter[Math.floor((Math.random() * konsonanter.length))];
+            var grupp = slumpKonsonant1 + slumpVokal + slumpKonsonant2;
+            return grupp;
+        }
+
+        function visaOrdet() {
+            out = document.getElementById("result");
+            for (var i = 0; i < 10; i++) {
+                var password = generera3grupp() + generera3grupp() + generera3grupp();
+                out.innerHTML += "Password: " + password + "<br />";
+            }
+        }
+    </script>
+</body>
+
+</html>

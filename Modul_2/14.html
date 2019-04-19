@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="description">
+    <title>JavaScript exempel</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <script src="4.js"></script>
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #fff;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin: 0 auto;
+            border: thin solid #ddd;
+            background-color: #eee;
+            width: 800px;
+            padding: 2em;
+        }
+
+        pre,
+        #result,
+        input,
+        button {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 3px solid #000;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        input {
+            background-color: #fff;
+            color: #000;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>JavaScript exempel</h2>
+        <p><input type="text" id="Namn" placeholder="Skriv ett namn"></p>
+        <p><button onclick="visaUtskrifterna()">Visa utskrifterna</button></p>
+        <div id="result"></div>
+    </section>
+    <script>
+        function visaUtskrifterna() {
+            out = document.getElementById("result");
+            namn = document.getElementById("Namn").value;
+
+            for (var i = 0; i <= namn.length; i++) {
+                out.innerHTML += namn.slice(0, i) + "<br>";
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="description">
+    <title>JavaScript exempel</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #fff;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin: 0 auto;
+            border: thin solid #ddd;
+            background-color: #eee;
+            width: 800px;
+            padding: 2em;
+        }
+
+        pre,
+        #result {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 3px solid #000;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>JavaScript exempel</h2>
+        <div id="result"></div>
+    </section>
+    <script>
+        out = document.getElementById("result");
+        out.innerHTML = "Exempel på  indexOf(), charAt(), toUpperCase(), och toLowerCase() <br>";
+        out.innerHTML += "<br>str1 = Nyskördad hö smakar gott på smårgåsen";
+        out.innerHTML += "<br>str2 = God Jul Och Gott Nytt År!";
+
+        str1 = "Nyskördad hö smakar gott på smårgåsen";
+        str2 = "God Jul och Gott nytt år!";
+
+        out.innerHTML += "<br><br>str1.indexOf (\"smakar\"): " + str1.indexOf("smakar") + " tecken in i strängen";
+        out.innerHTML += "<br>str1.charAt (\"3\"): " + str1.charAt(3) + " är det 3'e tecknet i strängen";
+        out.innerHTML += "<br>str1.toUpperCase (): " + str1.toUpperCase();
+        out.innerHTML += "<br>str2.toLowerCase (): " + str2.toLowerCase();
+    </script>
+</body>
+
+</html>

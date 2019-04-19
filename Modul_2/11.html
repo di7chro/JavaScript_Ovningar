@@ -51,7 +51,7 @@
     </section>
     <script>
         function getGrade(namnArray, betygArray, namn) {
-            for (i = 0; i < namnArray.length; i++)
+            for (var i = 0; i < namnArray.length; i++)
                 if (namnArray[i] == namn)
                     return betygArray[i];
             return "";
@@ -59,7 +59,7 @@
 
         function copyArr(indata) {
             ut = new Array(indata.length);
-            for (i = 0; i < indata.length; i++)
+            for (var i = 0; i < indata.length; i++)
                 ut[i] = indata[i];
             return ut;
         }
@@ -71,14 +71,14 @@
             sortedNames = sortedNames.sort();
 
             out = document.getElementById("result");
-            out.innerHTML = "ORG Namn    : Betyg" + "<br>---------------------";
-            for (i = 0; i < namnArray.length; i++)
+            out.innerHTML = "Orginallistan<br>Namn    : Betyg" + "<br>---------------------";
+            for (var i = 0; i < namnArray.length; i++)
                 out.innerHTML += "<br>" + namnArray[i] + " : " + getGrade(namnArray, betygArray, namnArray[i]);
 
-            out.innerHTML += "<br><br>SORT Namn    : Betyg" + "<br>---------------------";
-            // Endast 3 resultat i denna lista?
-            for (i = 0; i < sortedNames.length; i++)
+            out.innerHTML += "<br><br>Sorterat per förnamn <br>Namn    : Betyg" + "<br>---------------------";
+            for (var i = 0; i < sortedNames.length; i++) {
                 out.innerHTML += "<br>" + sortedNames[i] + " : " + getGrade(namnArray, betygArray, sortedNames[i]);
+            }
 
         }
     </script>

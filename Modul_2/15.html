@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="description">
+    <title>JavaScript exempel</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <script src="4.js"></script>
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #fff;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin: 0 auto;
+            border: thin solid #ddd;
+            background-color: #eee;
+            width: 800px;
+            padding: 2em;
+        }
+
+        pre,
+        #result,
+        input,
+        button {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 3px solid #000;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        input {
+            background-color: #fff;
+            color: #000;
+            width: 150px;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>JavaScript exempel</h2>
+        <p><input type="text" id="Texten" placeholder="Skriv din text"></p>
+        <p><button onclick="kryptera()">Kryptera texten</button>
+            <button onclick="deKryptera()">Dekryptera texten</button></p>
+        <div id="result"></div>
+    </section>
+    <script>
+        out = document.getElementById("result");
+        out.innerHTML = "o->! , e-># t->%, n->&";
+
+        function kryptera() {
+            out = document.getElementById("result");
+            texten = document.getElementById("Texten").value;
+            out.innerHTML = "Krypterad text:<br>";
+            texten = texten.replace(/o/gi, "!")
+            texten = texten.replace(/e/gi, "#")
+            texten = texten.replace(/t/gi, "%")
+            texten = texten.replace(/n/gi, "&")
+            out.innerHTML += texten;
+        }
+
+        function deKryptera() {
+            out = document.getElementById("result");
+            texten = document.getElementById("Texten").value;
+            out.innerHTML = "Dekrypterad text:<br>";
+            texten = texten.replace(/!/gi, "o")
+            texten = texten.replace(/#/gi, "e")
+            texten = texten.replace(/%/gi, "t")
+            texten = texten.replace(/&/gi, "n")
+            out.innerHTML += texten;
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="description">
+    <title>JavaScript exempel</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #fff;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin: 0 auto;
+            position: relative;
+            border: thin solid #ddd;
+            background-color: #eee;
+            width: 800px;
+            padding: 2em;
+            height: 600px;
+        }
+
+        pre,
+        #result,
+        input,
+        button {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 3px solid #000;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        input {
+            background-color: #fff;
+            color: #000;
+            width: 150px;
+        }
+
+        #godjul {
+            position: absolute;
+            height: 30px;
+            width: 80px;
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+            padding-top: 10px;
+            border: thin solid green;
+            background-color: burlywood;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>JavaScript exempel</h2>
+        <p><button onclick="animationInit()">Starta animation</button></p>
+        <div id="godjul">God Jul</div>
+    </section>
+    <script>
+        function animationInit() {
+            var c = Math.cos(Math.PI);
+            console.log(c);
+            // Först skapas angle som en global variabel
+            window.angle = 0;
+
+            //Starta animeraren
+            animate();
+        }
+
+        // Konverterar grader som jag har i loopen
+        // till radianer (som sin() och cos() gillar
+        function deg2rad(deg) {
+            var rad = deg * (Math.PI / 180);
+            return rad;
+        }
+
+        function animate() {
+            box = document.getElementById("godjul");
+            angle++;
+            // När vi snurrat ett varv startar vi om
+            if (angle == 360)
+                angle = 0;
+
+            // cos() och sin() på ett visst gradtal ger mig X och Y-koordinater
+            posX = Math.cos(deg2rad(angle)) * 200 + 400;
+            posY = Math.sin(deg2rad(angle)) * 200 + 300;
+            box.style.left = posX + "px";
+            box.style.top = posY + "px";
+            setTimeout(animate, 5);
+        }
+    </script>
+</body>
+
+</html>

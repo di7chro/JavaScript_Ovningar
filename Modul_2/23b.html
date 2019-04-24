@@ -59,7 +59,8 @@
 <body>
     <section>
         <h2>JavaScript exempel</h2>
-        <p><button onclick="animationInit()">Starta animation</button></p>
+        <p><button onclick="animationInit()">Starta</button>
+            <button onclick="animationStop()">Stoppa</button></p>
         <div id="godjul">God Jul</div>
     </section>
     <script>
@@ -70,8 +71,16 @@
             window.offset = 400;
             window.radius = 200;
 
+            // Global referens till min setTimeout.
+            window.t;
+
             //Starta animeraren
             animate();
+        }
+
+        // Stoppar animationen genom att cleara min setTimeout()
+        function animationStop() {
+            clearTimeout(t);
         }
 
         // Konverterar grader som jag har i loopen
@@ -94,7 +103,7 @@
             posY = Math.sin(deg2rad(angle)) * radius + offset;
             box.style.left = posX + "px";
             box.style.top = posY + "px";
-            setTimeout(animate, 5);
+            t = setTimeout(animate, 5);
         }
     </script>
 </body>

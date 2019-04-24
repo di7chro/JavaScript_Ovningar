@@ -64,10 +64,11 @@
     </section>
     <script>
         function animationInit() {
-            var c = Math.cos(Math.PI);
-            console.log(c);
             // Först skapas angle som en global variabel
+            // Dessutom skapas en radie för hur stor cirkeln skall vara samt en offset
             window.angle = 0;
+            window.offset = 400;
+            window.radius = 200;
 
             //Starta animeraren
             animate();
@@ -88,8 +89,9 @@
                 angle = 0;
 
             // cos() och sin() på ett visst gradtal ger mig X och Y-koordinater
-            posX = Math.cos(deg2rad(angle)) * 200 + 400;
-            posY = Math.sin(deg2rad(angle)) * 200 + 300;
+            // Dessa funktioner önskar att få radianer och inte grader
+            posX = Math.cos(deg2rad(angle)) * radius + offset;
+            posY = Math.sin(deg2rad(angle)) * radius + offset;
             box.style.left = posX + "px";
             box.style.top = posY + "px";
             setTimeout(animate, 5);

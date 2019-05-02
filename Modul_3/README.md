@@ -16,7 +16,7 @@ Utgå från följande data:
 
 Vi har ett antal mätstationer utplacerade på strategiska positioner i sverige där vi mäter temperaturen. Vi vill göra utskriften enligt nedan och medeltemperaturen skall räknas ut (gör er lösning så likt utskriften nedan som möjligt):
 
-| x       |	  00-08|	08-16| 16-24|	medel|
+|        |	  00-08|	08-16| 16-24|	medel|
 |---------|--------|-------|------|------|
 |Malmö	  |   12	|16	|9	|12.3|
 |Mariestad|   13	|15	|10	|12.7|
@@ -27,46 +27,48 @@ Vi har ett antal mätstationer utplacerade på strategiska positioner i sverige 
 
 **Övning 2**
 Nedan är data som kommer från svenska städers mätstationer. använd alert (eller annat valfritt sätt) för att skriva ut alla Stockholms temperaturer med hjälp av datan nedan:
-var tempen = {
-"stad" : [
-{"namn" : "Malmö", "natt" : "12", "morgon" : "14","kvall" : "10"},
-{"namn" : "Göteborg", "natt" : "11", "morgon" : "15","kvall" : "9"},
-{"namn" : "Stockholm", "natt" : "10", "morgon" : "13","kvall" : "10"},
-{"namn" : "Mariestad", "natt" : "11", "morgon" : "16","kvall" : "11"}
-]
-};
+
+    var tempen = {
+    "stad" : [
+    {"namn" : "Malmö", "natt" : "12", "morgon" : "14","kvall" : "10"},
+    {"namn" : "Göteborg", "natt" : "11", "morgon" : "15","kvall" : "9"},
+    {"namn" : "Stockholm", "natt" : "10", "morgon" : "13","kvall" : "10"},
+    {"namn" : "Mariestad", "natt" : "11", "morgon" : "16","kvall" : "11"}
+    ]
+    };
 
 **Övning 3**
  Gör om uppgift 9 och 10 från modul 2 som handlar om läraren Morgan. Programmet ska ha samma funktionalitet men istället för att lagra namn och betyg som två arrayer ska du använda en array av lämpliga objekt istället. se exemplet på en aray med objekt nedan.
-var exempelArayMedObjekt = [
-{"namn" : "kalle", "betyg" : "A"},
-{"namn" : "sara", "betyg" : "E"},
-{"namn" : "erik", "betyg" : "F"},
-{"namn" : "mia", "betyg" : "B"}
-];
+
+    var exempelArayMedObjekt = [
+      {"namn" : "kalle", "betyg" : "A"},
+      {"namn" : "sara", "betyg" : "E"},
+      {"namn" : "erik", "betyg" : "F"},
+      {"namn" : "mia", "betyg" : "B"}
+    ];
 x. Det finns färdig kod (Libris Kod (Länkar till en externa sida.)Länkar till en externa sida.) (använd filen som finns under övriga filer på disco istället) för att söka efter böcker i Kungliga bibliotektets databas Libris. Gör en sida som frågar efter ett sökord, utför en sökning på libris.kb.se och presentera resultatet av sökningen snyggt på sidan. Välj själv 3-4 st fält du vill visa upp från resultatet. Du behöver inte kunna hur själva sökningen går till - du får färdig kod för detta.
 
 
 **Övning 4**
 Studera koden nedan och förklara vad som skrivs ut. Tänk först - provkör sedan!
-// Vad skrivs ut?
+      // Vad skrivs ut?
 
-var personA = {firstName:"Thomas", lastName:"Lundqvist", age:47, favorite:"apple"}
-var personB = personA;
+      var personA = {firstName:"Thomas", lastName:"Lundqvist", age:47, favorite:"apple"}
+      var personB = personA;
 
-personB.favorite = "pear";
+      personB.favorite = "pear";
 
-printit(personA);
-printit(personB);
+      printit(personA);
+      printit(personB);
 
-personA = {firstName:"Robert", lastName:"Andersson Dahlberg", age:23, favorite:"banana"} 
+      personA = {firstName:"Robert", lastName:"Andersson Dahlberg", age:23, favorite:"banana"} 
 
-printit(personA);
-printit(personB);
+      printit(personA);
+      printit(personB);
 
-function printit(person) {
-     console.log(person.firstName + " likes " + person.favorite);
-}
+      function printit(person) {
+          console.log(person.firstName + " likes " + person.favorite);
+      }
 
 **Övning 5**
 Gör ett eget namespace och lägg till funktionen addera. Funktionen adderaskall ta två tal som inparameter och skriva ut summan av dessa på lämpligt ställe (t.ex. genom att ändra innerHTML i ett element).
@@ -79,7 +81,7 @@ Gör ett eget namespace och lägg till en variabel som heter antalClick. Skapa e
 Skriv ett program som men hjälp av javascript ändrar bakgrundsfärgen på ett div-element när man håller musen över den, och sedan ändrar tillbaka till ursprungsfärgen när man flyttar bort muspekaren (använd namespace).
 
 **Övning 8**
-Skapa ett program som består av ett textfält (t.ex. <input type=text"">), en knapp och ett div-element. När man trycker på knappen skall det som står i textrutan skrivas ut i div-elementet (använd namespace).
+Skapa ett program som består av ett textfält (t.ex. `<input type=text"">`), en knapp och ett div-element. När man trycker på knappen skall det som står i textrutan skrivas ut i div-elementet (använd namespace).
 
 **Övning 9**
 Skapa ett program där ett div-element rör sig fram och tillbaka i x-led på skärmen automatiskt. Använd setInterval eller setTimeout (och använd namespace).

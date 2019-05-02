@@ -13,14 +13,14 @@ Utgå från följande data:
       ["Upphärad",14,16,15], 
       ["Göteborg",13,14,12] 
       ];
-      
+
 Vi har ett antal mätstationer utplacerade på strategiska positioner i sverige där vi mäter temperaturen. Vi vill göra utskriften enligt nedan och medeltemperaturen skall räknas ut (gör er lösning så likt utskriften nedan som möjligt):
- 	00-08	08-16 	16-24	medel
-Malmö	12	16	9	12.3
-Mariestad	13	15	10	12.7
-Stockholm	13	15	13	13.7
-Upphärad	14	16	15	15
-Göteborg	13	14	12	13
+| x|	00-08|	08-16| 	16-24|	medel|
+|Malmö	|12	|16	|9	|12.3|
+|Mariestad	|13	|15	|10	|12.7|
+|Stockholm	|13	|15	|13	|13.7|
+|Upphärad	|14	|16	|15	|15|
+|Göteborg	|13	|14	|12	|13|
 
 **Övning 2**
 Nedan är data som kommer från svenska städers mätstationer. använd alert (eller annat valfritt sätt) för att skriva ut alla Stockholms temperaturer med hjälp av datan nedan:

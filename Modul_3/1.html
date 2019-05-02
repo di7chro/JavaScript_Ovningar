@@ -100,7 +100,15 @@
                 if (i == 0) {
                     cell.textContent = "medel";
                 } else {
-                    var medel = (tempen[i][j - 1] + tempen[i][j - 2] + tempen[i][j - 3]) / 3;
+                    var tot = 0;
+
+                    // Gör en loop som går igenom alla tidigare värden på raden
+                    // för att kunna skapa ett medelvärde
+                    for (var k = 1; k < tempen[i].length; k++) {
+                        tot += tempen[i][j - k];
+                    }
+
+                    var medel = tot / (tempen[i].length - 1);
                     cell.textContent = medel.toFixed(1);
                 }
 

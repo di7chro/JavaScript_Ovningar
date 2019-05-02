@@ -67,52 +67,35 @@
             // Skapa en referens till där utdatan skall landa
             var out = document.getElementById("result");
 
-            // Skapa ett element "minTabell" som skall innehålla tabellen
-            var minTabell = document.createElement('table');
-
             // Arrayen med platser/temperaturer
-            var tempen = [
-                ["", "00-08", "08-16", "16-24"],
-                ["Malmö", 12, 16, 9],
-                ["Mariestad", 13, 15, 10],
-                ["Stockholm", 13, 15, 13],
-                ["Upphärad", 14, 16, 15],
-                ["Göteborg", 13, 14, 12]
-            ];
-
-            // Gå igenom arrayen och bygg upp vår tabell
-            for (var i = 0; i < tempen.length; i++) {
-
-                // Skapar en ny rad
-                var row = document.createElement('tr');
-                for (var j = 0; j < tempen[i].length; j++) {
-                    var cell = document.createElement('td');
-
-                    // Fyll cellen med värdet från arrayen
-                    cell.textContent = tempen[i][j];
-
-                    // Lägg till denna rad till tabellen
-                    row.appendChild(cell);
-                }
-                var cell = document.createElement('td');
-
-                // Skapa kolumnen som finns utanför arrayen
-                if (i == 0) {
-                    cell.textContent = "medel";
-                } else {
-                    var medel = (tempen[i][j - 1] + tempen[i][j - 2] + tempen[i][j - 3]) / 3;
-                    cell.textContent = medel.toFixed(1);
-                }
-
-                // Lägg till denna nya cell
-                row.appendChild(cell);
-
-                // Lägg till den ny-tillverkade raden
-                minTabell.appendChild(row);
-            }
-
-            // Tabellen är klar, så appenda den till utdatan
-            out.appendChild(minTabell);
+            var tempen = {
+                "stad": [{
+                        "namn": "Malmö",
+                        "natt": "12",
+                        "morgon": "14",
+                        "kvall": "10"
+                    },
+                    {
+                        "namn": "Göteborg",
+                        "natt": "11",
+                        "morgon": "15",
+                        "kvall": "9"
+                    },
+                    {
+                        "namn": "Stockholm",
+                        "natt": "10",
+                        "morgon": "13",
+                        "kvall": "10"
+                    },
+                    {
+                        "namn": "Mariestad",
+                        "natt": "11",
+                        "morgon": "16",
+                        "kvall": "11"
+                    }
+                ]
+            };
+            console.log(tempen);
         }
     </script>
 </body>

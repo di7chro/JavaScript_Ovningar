@@ -22,7 +22,9 @@
         }
 
         pre,
-        #result {
+        #result,
+        input,
+        button {
             font-family: 'Source Code Pro', monospace;
             font-weight: bold;
             font-size: 1rem;
@@ -31,22 +33,44 @@
             color: #fff;
             padding: 1rem;
         }
+
+        input {
+            background-color: #fff;
+            color: #000;
+            width: 150px;
+        }
     </style>
 </head>
 
 <body>
     <section>
         <h2>JavaScript exempel</h2>
+        <p><button onclick="visaTabellen()">Visa tabellen</button></p>
         <div id="result"></div>
     </section>
     <script>
-        function addera(tal1, tal2) {
-            svar = tal1 + tal2;
-            return svar;
+        function visaTabellen() {
+            out = document.getElementById("result");
+            var tempen = [
+                ["", "00-08", "08-16", "16-24"],
+                ["Malmö", 12, 16, 9],
+                ["Mariestad", 13, 15, 10],
+                ["Stockholm", 13, 15, 13],
+                ["Upphärad", 14, 16, 15],
+                ["Göteborg", 13, 14, 12]
+            ];
+            out.innerHTML += "<table>";
+
+            for (var i = 1; i < tempen.length; i++) {
+                out.innerHTML += "<tr>";
+                for (var j = 0; j < 4; j++) {
+                    out.innerHTML += "<td>" + tempen[i][j] + "</td>";
+                }
+                out.innerHTML += "</tr>";
+            }
+            out.innerHTML += "</table>";
+
         }
-        out = document.getElementById("result");
-        svar = addera(2, 2);
-        out.innerHTML = "Svaret är: " + svar;
     </script>
 </body>
 

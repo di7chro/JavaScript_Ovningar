@@ -4,14 +4,14 @@ Lite blandade övningar från Högskolan Väst introduktionskurs i JavaScript.
 
 **Övning 1**
 Utgå från följande data:
-  var tempen = [ 
-  ["","00-08","08-16","16-24"], 
-  ["Malmö",12,16,9], 
-  ["Mariestad",13,15,10], 
-  ["Stockholm",13,15,13], 
-  ["Upphärad",14,16,15], 
-  ["Göteborg",13,14,12] 
-  ];
+      var tempen = [ 
+      ["","00-08","08-16","16-24"], 
+      ["Malmö",12,16,9], 
+      ["Mariestad",13,15,10], 
+      ["Stockholm",13,15,13], 
+      ["Upphärad",14,16,15], 
+      ["Göteborg",13,14,12] 
+      ];
 Vi har ett antal mätstationer utplacerade på strategiska positioner i sverige där vi mäter temperaturen. Vi vill göra utskriften enligt nedan och medeltemperaturen skall räknas ut (gör er lösning så likt utskriften nedan som möjligt):
  	00-08	08-16 	16-24	medel
 Malmö	12	16	9	12.3

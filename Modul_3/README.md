@@ -17,6 +17,7 @@ Utgå från följande data:
 Vi har ett antal mätstationer utplacerade på strategiska positioner i sverige där vi mäter temperaturen. Vi vill göra utskriften enligt nedan och medeltemperaturen skall räknas ut (gör er lösning så likt utskriften nedan som möjligt):
 
 | x       |	  00-08|	08-16| 16-24|	medel|
+|---------|--------|-------|------|------|
 |Malmö	  |   12	|16	|9	|12.3|
 |Mariestad|   13	|15	|10	|12.7|
 |Stockholm|   13	|15	|13	|13.7|

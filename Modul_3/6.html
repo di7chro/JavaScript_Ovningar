@@ -39,34 +39,33 @@
             color: #000;
             width: 150px;
         }
+
+        #nummerbox {
+            color: #fff;
+            background-color: #e11;
+            text-align: center;
+            font-size: 5rem;
+            padding: 1rem;
+            width: 300px;
+            height: 100px;
+            margin: 0 auto;
+        }
     </style>
 </head>
 
 <body>
     <section>
         <h2>JavaScript exempel</h2>
-        <p><button onclick="CrilleNS.init()">Addera</button></p>
-        <div id="result"></div>
+        <p><button onclick="CrilleNS.click()">Klicka för att öka räknaren</button></p>
+        <div id="nummerbox">0</div>
     </section>
     <script>
-        /*
-        Gör ett eget namespace och lägg till en variabel som heter antalClick. 
-        Skapa en funktion som heter click och varje gång funktionen körs skall 1 
-        läggas till variabeln antalClick. Total antal klick skall skrivas ut på 
-        skärmen på valfritt ställe. Funktionen skall "triggas" när man trycker på 
-        en knapp.
-        */
-        var out = document.getElementById("result");
-
+        var box = document.getElementById("nummerbox");
+        var antalClick = 0;
         var CrilleNS = {
-            init: function () {
-                tal1 = parseInt(document.getElementById("Tal1").value);
-                tal2 = parseInt(document.getElementById("Tal2").value);
-                var svar = CrilleNS.addera(tal1, tal2);
-                out.innerHTML = "Adderat: " + svar;
-            },
-            addera: function (tal1, tal2) {
-                return tal1 + tal2;
+            click: function () {
+                antalClick++;
+                box.innerHTML = antalClick;
             }
         }
     </script>

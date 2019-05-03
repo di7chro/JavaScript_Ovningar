@@ -66,6 +66,7 @@
         function visaTabellen() {
             // Skapa en referens till där utdatan skall landa
             var out = document.getElementById("result");
+            out.innerHTML = "Temperaturer i Stockholm<br>";
 
             // Arrayen med platser/temperaturer
             var tempen = {
@@ -95,9 +96,18 @@
                     }
                 ]
             };
-            console.log(tempen.stad[2].morgon);
-            for (const key in tempen.stad) {
-                console.log(tempen.stad[key]);
+
+            // Gå igenom JSON-data i objektet "stad"
+            for (key in tempen.stad) {
+
+                // Har vi kommit fram till namnet "Stockholm"?
+                if (tempen.stad[key].namn == "Stockholm") {
+
+                    // Printa ut det till resultatet
+                    out.innerHTML += "<br>Natt: " + tempen.stad[key].natt;
+                    out.innerHTML += "<br>Morgon: " + tempen.stad[key].morgon;
+                    out.innerHTML += "<br>Kväll: " + tempen.stad[key].kvall;
+                }
             }
         }
     </script>

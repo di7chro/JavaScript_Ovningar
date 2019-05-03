@@ -59,17 +59,29 @@
 <body onload="appInit()">
     <section>
         <h2>JavaScript exempel</h2>
-        <p><button onclick="Vara()">Skapa</button></p>
-
-        <div id="box">Hello World!</div>
+        <p><button onclick="Vara.run()">Kör</button></p>
+        <div id="box"></div>
     </section>
     <script>
         function appInit() {
             console.log("appInit()");
+            const v = new Vara('xxx', 100, 'beskri', 10);
+
         }
+
         class Vara {
-            constructor() {
+            constructor(namn, pris, beskrivning, antal) {
                 console.log("Vara skapad.");
+                this._namn = namn;
+                this._pris = pris;
+                this._beskrivning = beskrivning;
+                this._antal = antal;
+            }
+            calcSubTotal() {
+                console.log("calcSub.");
+            }
+            run() {
+                v.calcSubTotal();
             }
         }
     </script>

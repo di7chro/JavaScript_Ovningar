@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="description">
+    <title>JavaScript exempel</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background-color: #fff;
+            font-size: 1.4em;
+        }
+
+        section {
+            margin: 0 auto;
+            border: thin solid #ddd;
+            background-color: #eee;
+            width: 800px;
+            padding: 2em;
+        }
+
+        pre,
+        #result,
+        input,
+        button {
+            font-family: 'Source Code Pro', monospace;
+            font-weight: bold;
+            font-size: 1rem;
+            border: 3px solid #000;
+            background-color: #333;
+            color: #fff;
+            padding: 1rem;
+        }
+
+        input {
+            background-color: #fff;
+            color: #000;
+            width: 150px;
+        }
+
+        #result table {
+            background-color: #fff;
+            color: #000;
+            font: 1.1rem Verdana, sans-serif;
+        }
+
+        #result table td {
+            padding: 0.2rem 1.4rem;
+        }
+
+        #result table tr:nth-of-type(odd) {
+            background-color: #eee;
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h2>JavaScript exempel</h2>
+        <p><button onclick="visaTabellen()">Visa tabellen</button></p>
+        <div id="result"></div>
+    </section>
+    <script>
+        function visaTabellen() {
+            // Skapa en referens till där utdatan skall landa
+            var out = document.getElementById("result");
+
+            var personA = {
+                firstName: "Thomas",
+                lastName: "Lundqvist",
+                age: 47,
+                favorite: "apple"
+            }
+            var personB = personA;
+
+            personB.favorite = "pear";
+
+            printit(personA); // Skriver ut Thomas & pear (pga A & B är samma objekt)
+            printit(personB); // Skriver ut Thomas & pear (som vi satte)
+
+            personA = {
+                firstName: "Robert",
+                lastName: "Andersson Dahlberg",
+                age: 23,
+                favorite: "banana"
+            }
+
+            printit(personA); // Skriver ut Robert & banana (som vi satte nyss)
+            printit(personB); // Skriver ut Thomas & pear (pga vi har ej ändrat B)
+
+            function printit(person) {
+                out.innerHTML += person.firstName + " likes " + person.favorite + "<br>";
+            }
+        }
+    </script>
+</body>
+
+</html>

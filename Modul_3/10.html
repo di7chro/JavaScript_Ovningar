@@ -41,47 +41,44 @@
             color: #000;
             width: 150px;
         }
-
-        #box {
-            position: absolute;
-            height: 50px;
-            width: 200px;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: bold;
-            padding-top: 10px;
-            border: thin solid green;
-            background-color: burlywood;
-        }
     </style>
 </head>
 
 <body onload="appInit()">
     <section>
         <h2>JavaScript exempel</h2>
-        <p><button onclick="Vara.run()">Kör</button></p>
-        <div id="box"></div>
+        <p><button onclick="runExample()">Kör</button></p>
+        <div id="result"></div>
     </section>
     <script>
+        // Initiera en Vara
         function appInit() {
-            console.log("appInit()");
-            const v = new Vara('xxx', 100, 'beskri', 10);
-
+            window.s = new Vara('Skruvmejsel', 79, 'Fin skrivmejsel av högsta Biltema-klass', 10);
         }
 
+        // Funktion för att starta exemplet samt skriver ut texten
+        function runExample() {
+            var out = document.getElementById("result");
+            var subTot = s.calcSubTotal();
+            out.innerHTML += "Vara: " + s._namn;
+            out.innerHTML += "<br>Beskrivning: " + s._beskrivning;
+            out.innerHTML += "<br>Styckpris: " + s._pris;
+            out.innerHTML += "<br>Antal: " + s._antal;
+            out.innerHTML += "<br><br>Totalt: " + subTot;
+        }
+
+        // Klassen som abstraherar en Vara
         class Vara {
             constructor(namn, pris, beskrivning, antal) {
-                console.log("Vara skapad.");
                 this._namn = namn;
                 this._pris = pris;
                 this._beskrivning = beskrivning;
                 this._antal = antal;
             }
+
+            // Räknar ut Varans totalpris
             calcSubTotal() {
-                console.log("calcSub.");
-            }
-            run() {
-                v.calcSubTotal();
+                return this._antal * this._pris;
             }
         }
     </script>

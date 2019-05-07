@@ -46,7 +46,13 @@
     </section>
     <script>
         // Initiera programmet
-        function appInit() {}
+        function appInit() {
+            window.b = new Bilfirma("Berra Begagnade bilar");
+            window.k = new Kund("Kalle Karlsson");
+            window.f = new Fordon("Allmänt Fordon");
+            window.b = new Bil("Renault Clio");
+            window.m = new Motorcykel("Kawasaki K750");
+        }
 
         // Funktion för att starta exemplet samt skriver ut texten
         function runExample() {
@@ -55,31 +61,42 @@
 
         // Klassen Bilfirma
         class Bilfirma {
-
+            constructor(name) {
+                console.log("Skapade en Bilfirma");
+            }
         }
 
         // Klassen som abstraherar en Kund
         class Kund {
+            constructor(name) {
+                console.log("Skapade en Kund");
+            }
 
         }
 
         // Superklassen Fordon
         class Fordon {
+            constructor(name) {
+                console.log("Skapade ett Fordon");
+            }
 
         }
 
         // SubKlassen Bil
-        class Bil {
+        class Bil extends Fordon {
+            constructor(name) {
+                console.log("Skapade en Bil");
+                super(name);
+            }
 
         }
 
         // SubKlassen Motorcykel
-        class Motorcykel {
-
-        }
-
-        // SubKlassen Lastbil
-        class Lastbil {
+        class Motorcykel extends Fordon {
+            constructor(name) {
+                console.log("Skapade en Motorcykel");
+                super(name);
+            }
 
         }
     </script>

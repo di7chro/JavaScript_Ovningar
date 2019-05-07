@@ -49,9 +49,14 @@
         function appInit() {
             window.b = new Bilfirma("Berra Begagnade bilar");
             window.k = new Kund("Kalle Karlsson");
-            window.f = new Fordon("Allmänt Fordon");
+            //window.f = new Fordon("Allmänt Fordon");
             window.b = new Bil("Renault Clio");
             window.m = new Motorcykel("Kawasaki K750");
+
+            console.log("Bilfirma: " + b.getName());
+            console.log("Kund: " + k.getName());
+            console.log("Bil: " + b.getName());
+            console.log("Motorcykel: " + m.getName());
         }
 
         // Funktion för att starta exemplet samt skriver ut texten
@@ -62,14 +67,22 @@
         // Klassen Bilfirma
         class Bilfirma {
             constructor(name) {
-                console.log("Skapade en Bilfirma");
+                this._name = name;
+                //console.log("Skapade en Bilfirma");
+            }
+            getName() {
+                return this._name;
             }
         }
 
         // Klassen som abstraherar en Kund
         class Kund {
             constructor(name) {
-                console.log("Skapade en Kund");
+                this._name = name;
+                //console.log("Skapade en Kund");
+            }
+            getName() {
+                return this._name;
             }
 
         }
@@ -77,7 +90,8 @@
         // Superklassen Fordon
         class Fordon {
             constructor(name) {
-                console.log("Skapade ett Fordon");
+                this._name = name;
+                //console.log("Skapade ett Fordon");
             }
 
         }
@@ -85,8 +99,12 @@
         // SubKlassen Bil
         class Bil extends Fordon {
             constructor(name) {
-                console.log("Skapade en Bil");
                 super(name);
+                this._name = name;
+                //console.log("Skapade en Bil");
+            }
+            getName() {
+                return this._name;
             }
 
         }
@@ -94,8 +112,12 @@
         // SubKlassen Motorcykel
         class Motorcykel extends Fordon {
             constructor(name) {
-                console.log("Skapade en Motorcykel");
                 super(name);
+                this._name = name;
+                //console.log("Skapade en Motorcykel");
+            }
+            getName() {
+                return this._name;
             }
 
         }

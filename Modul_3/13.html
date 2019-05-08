@@ -48,15 +48,17 @@
         // Initiera programmet
         function appInit() {
             window.b = new Bilfirma("Berra Begagnade bilar");
-            window.k = new Kund("Kalle Karlsson");
-            //window.f = new Fordon("Allmänt Fordon");
+            window.f = new Fordon("Allmänt Fordon");
             window.b = new Bil("Renault Clio");
             window.m = new Motorcykel("Kawasaki K750");
+            window.k = new Kund("Kalle Karlsson", "Hemgatan 1", "0520-12345", window.b);
 
             console.log("Bilfirma: " + b.getName());
             console.log("Kund: " + k.getName());
             console.log("Bil: " + b.getName());
             console.log("Motorcykel: " + m.getName());
+
+            b.saljFordon();
         }
 
         // Funktion för att starta exemplet samt skriver ut texten
@@ -66,25 +68,46 @@
 
         // Klassen Bilfirma
         class Bilfirma {
+            fordon = new Array();
+            kunder = new Array();
             constructor(name) {
                 this._name = name;
+
                 //console.log("Skapade en Bilfirma");
             }
+
+            // Returnerar Bilformans namn
             getName() {
                 return this._name;
+            }
+
+            // Bilfirma säljer Fordon till Kund
+            saljFordon() {
+
+            }
+
+            // Bilfirma köper ett Fordon från Kund
+            kopFordon(f) {
+                this.fordon.push(f);
+                //console.log("Köpt fordon: " + f.getName());
             }
         }
 
         // Klassen som abstraherar en Kund
         class Kund {
-            constructor(name) {
+            constructor(namn, adress, telefon, Fordon) {
                 this._name = name;
+                this._adress = adress;
+                this._telefon = telefon;
+                this._Fordon = Fordon;
                 //console.log("Skapade en Kund");
             }
             getName() {
                 return this._name;
             }
-
+            getFordon() {
+                return this._Fordon.getName();
+            }
         }
 
         // Superklassen Fordon

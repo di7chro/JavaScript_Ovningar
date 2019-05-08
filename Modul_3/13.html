@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <meta name="description" content="description">
+    <meta namn="description" content="description">
     <title>JavaScript exempel</title>
     <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro" rel="stylesheet">
     <style>
@@ -47,102 +47,117 @@
     <script>
         // Initiera programmet
         function appInit() {
-            window.b = new Bilfirma("Berra Begagnade bilar");
-            window.f = new Fordon("Allmänt Fordon");
-            window.b = new Bil("Renault Clio");
-            window.m = new Motorcykel("Kawasaki K750");
+            window.bf = new Bilfirma("Berra Begagnade bilar");
             window.k = new Kund("Kalle Karlsson", "Hemgatan 1", "0520-12345", window.b);
 
-            console.log("Bilfirma: " + b.getName());
-            console.log("Kund: " + k.getName());
-            console.log("Bil: " + b.getName());
-            console.log("Motorcykel: " + m.getName());
+            //window.f = new Fordon("Allmänt Fordon");
+            window.b = new Bil("Renault Clio", "Röd");
+            window.m = new Motorcykel("Kawasaki K750", "Svart");
 
-            b.saljFordon();
+            bf.kopFordon(b);
+            bf.kopFordon(m);
+
+            bf.skapaKund(k);
         }
 
         // Funktion för att starta exemplet samt skriver ut texten
         function runExample() {
-
+            bf.printFordon();
+            bf.printKunder();
         }
 
         // Klassen Bilfirma
         class Bilfirma {
             fordon = new Array();
             kunder = new Array();
-            constructor(name) {
-                this._name = name;
-
-                //console.log("Skapade en Bilfirma");
+            constructor(namn) {
+                this._namn = namn;
             }
 
             // Returnerar Bilformans namn
-            getName() {
-                return this._name;
+            getnamn() {
+                return this._namn;
             }
 
             // Bilfirma säljer Fordon till Kund
             saljFordon() {
-
+                console.log("Säljer...");
             }
 
             // Bilfirma köper ett Fordon från Kund
             kopFordon(f) {
                 this.fordon.push(f);
-                //console.log("Köpt fordon: " + f.getName());
+            }
+
+            // Lägger till en Kund till Bilfirman
+            skapaKund(k) {
+                this.kunder.push(k);
+            }
+
+            // Skriver ut Bilfirmas alla Fordon
+            printFordon() {
+                var out = document.getElementById("result");
+                out.innerHTML = "Bilfirmans alla Fordon:";
+                for (var i = 0; i < this.fordon.length; i++) {
+                    out.innerHTML += "<br><br>Typ: " + ((this.fordon[i]._antalHjul == 2) ? "Motorcykel" : "Bil");
+                    out.innerHTML += "<br>Namn: " + this.fordon[i]._namn;
+                    out.innerHTML += "<br>Färg: " + this.fordon[i]._farg;
+                }
+                out.innerHTML += "<br><br>";
+            }
+
+            // Skriver ut Bilfirmas alla Kunder
+            printKunder() {
+                var out = document.getElementById("result");
+                out.innerHTML += "<br><br>Bilfirmans alla Kunder:<br>";
+                for (var i = 0; i < this.kunder.length; i++) {
+                    out.innerHTML += "<br>Namn: " + this.kunder[i]._namn;
+                    out.innerHTML += "<br>Adress: " + this.kunder[i]._adress;
+                    out.innerHTML += "<br>Telefon: " + this.kunder[i]._telefon;
+                    out.innerHTML += "<br>Fordon: " + this.kunder[i]._fordon.getnamn();
+                }
+                out.innerHTML += "<br><br>";
+            }
+        }
+
+        // Superklassen Fordon
+        class Fordon {
+            constructor(namn, farg) {
+                this._namn = namn;
+                this._farg = farg;
+            }
+            getNamn() {
+                return this._namn;
+            }
+        }
+
+        // SubKlassen Bil
+        class Bil extends Fordon {
+            constructor(namn, farg) {
+                super(namn, farg);
+                this._antalHjul = 4;
+            }
+        }
+
+        // SubKlassen Motorcykel
+        class Motorcykel extends Fordon {
+            constructor(namn, farg) {
+                super(namn, farg);
+                this._antalHjul = 2;
             }
         }
 
         // Klassen som abstraherar en Kund
         class Kund {
             constructor(namn, adress, telefon, Fordon) {
-                this._name = name;
+                this._namn = namn;
                 this._adress = adress;
                 this._telefon = telefon;
                 this._Fordon = Fordon;
-                //console.log("Skapade en Kund");
-            }
-            getName() {
-                return this._name;
             }
             getFordon() {
-                return this._Fordon.getName();
+                return this._Fordon.getnamn();
             }
-        }
-
-        // Superklassen Fordon
-        class Fordon {
-            constructor(name) {
-                this._name = name;
-                //console.log("Skapade ett Fordon");
-            }
-
-        }
-
-        // SubKlassen Bil
-        class Bil extends Fordon {
-            constructor(name) {
-                super(name);
-                this._name = name;
-                //console.log("Skapade en Bil");
-            }
-            getName() {
-                return this._name;
-            }
-
-        }
-
-        // SubKlassen Motorcykel
-        class Motorcykel extends Fordon {
-            constructor(name) {
-                super(name);
-                this._name = name;
-                //console.log("Skapade en Motorcykel");
-            }
-            getName() {
-                return this._name;
-            }
-
         }
     </script>
 </body>

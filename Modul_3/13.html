@@ -114,7 +114,7 @@
                     out.innerHTML += "<br>Namn: " + this.kunder[i]._namn;
                     out.innerHTML += "<br>Adress: " + this.kunder[i]._adress;
                     out.innerHTML += "<br>Telefon: " + this.kunder[i]._telefon;
-                    out.innerHTML += "<br>Fordon: " + this.kunder[i]._fordon.getnamn();
+                    //out.innerHTML += "<br>Fordon: " + this.kunder[i]._fordon.getnamn();
                 }
                 out.innerHTML += "<br><br>";
             }
@@ -149,11 +149,10 @@
 
         // Klassen som abstraherar en Kund
         class Kund {
-            constructor(namn, adress, telefon, Fordon) {
+            constructor(namn, adress, telefon) {
                 this._namn = namn;
                 this._adress = adress;
                 this._telefon = telefon;
-                this._Fordon = Fordon;
             }
             getFordon() {
                 return this._Fordon.getnamn();
